@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@1,800&family=Comfortaa:wght@300&family=Montserrat:wght@300&family=Prompt:ital,wght@1,100&family=Roboto:wght@100&display=swap');
+*{
+    font-family: 'Alumni Sans', sans-serif;  
+}
+
+html{
+    background-color: rgba(197, 206, 255, 0.542);
+}
+app-root{
+    font-size: 30px;
+    border-radius: 7px;
+}
