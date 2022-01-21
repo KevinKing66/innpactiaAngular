@@ -19,13 +19,26 @@
         </div>
 
         <div *ngIf="findB">
+            <p>
+
+                ¿cuantos elementos quieres ver por pagina?
+                
+                <input type="radio" name="empleoactual" value=5 [(ngModel)]="ItemsPP"> 5
+            
+                <input type="radio" name="empleoactual" value=10 [(ngModel)]="ItemsPP"> 10
+            
+                <input type="radio" name="empleoactual" value=15 [(ngModel)]="ItemsPP"> 15
+            
+              </p>
+
             <h2>busquedas recientes</h2>
             <table>
                 <tr>
                     <td>ciudad</td>
                     <td>temperatura</td>
                 </tr>
-                <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: 2, currentPage: p }">
+
+                <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
                     <td>{{ e.name }}</td>
                     <td>{{ e.main.temp }}</td>
                     

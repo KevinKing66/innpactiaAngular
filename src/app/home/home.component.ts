@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   constructor(private service: WeatherService, private serviceL: LoginService) {
 
   }
-   //pagina y otra para lentgh
 
   ngOnInit(): void {
   }
