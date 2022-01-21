@@ -14,17 +14,23 @@
         </div>
 
         <div>
+            <a *ngIf="!findB" (click)="find()">¿Quieres ver las búsquedas recientes?</a>
+            <a *ngIf="findB" (click)="find()">¿Quieres ocultar las búsquedas recientes?</a>
+        </div>
+
+        <div *ngIf="findB">
             <h2>busquedas recientes</h2>
             <table>
                 <tr>
                     <td>ciudad</td>
                     <td>temperatura</td>
                 </tr>
-                <tr *ngFor="let e of user.queries; let i = index">
+                <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: 2, currentPage: p }">
                     <td>{{ e.name }}</td>
                     <td>{{ e.main.temp }}</td>
                     
                 </tr>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </table>
         </div>
 

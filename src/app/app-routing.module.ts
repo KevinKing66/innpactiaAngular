@@ -8,7 +8,7 @@ if(localStorage.getItem("token")){
 var routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent},
-  {path:'**', redirectTo: 'home'}
+  {path:'**', redirectTo: 'home'},
 ];
 }else{
   var routes: Routes = [

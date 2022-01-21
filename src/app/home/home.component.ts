@@ -14,10 +14,14 @@ export class HomeComponent implements OnInit {
   city: string = "";
   info: any = "";
   queries: any = [] ;
-
+  paginas: any = []
+  findB: boolean = false;
+  ItemsPP: number = 5;
+  p: number = 1;
   constructor(private service: WeatherService, private serviceL: LoginService) {
-  this.user
-   }
+
+  }
+   //pagina y otra para lentgh
 
   ngOnInit(): void {
   }
@@ -39,7 +43,7 @@ export class HomeComponent implements OnInit {
     sessionStorage.setItem("user", this.user);
     this.serviceL.queries(this.user).subscribe(res => {console.log(res)
     this.login()
-  }
+  },
   );
   }
 
@@ -61,5 +65,9 @@ export class HomeComponent implements OnInit {
         sessionStorage.setItem("user", JSON.stringify(userData.authData));
       });
       });
+  }
+
+  find(){
+    this.findB  = this.findB ? false : true;
   }
 }
