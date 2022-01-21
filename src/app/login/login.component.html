@@ -3,11 +3,11 @@
 <div  *ngIf="!token">
 
     <form>
-        <h1 *ngIf="!logup">Log In</h1>
+        <h1 *ngIf="!logUp">Log In</h1>
         <h1 *ngIf="logUp">REGISTRO</h1>
-        
-        <input type="email" name="E"  [(ngModel)]="loginForm.email" id="E" placeholder="Email" class="form">
-        <input type="password" name="P"  [(ngModel)]="loginForm.password" id="P" placeholder="password" class="form">
+        <input *ngIf="logUp" type="text" name="E"  [(ngModel)]="loginForm.userName" placeholder="nombre de usuario">
+        <input type="email" name="E"  [(ngModel)]="loginForm.email" placeholder="Email" autocomplete="on">
+        <input type="password" name="P"  [(ngModel)]="loginForm.password" placeholder="password" autocomplete="on">
 
         <a *ngIf="!logUp" (click)="logUpF()">Crear nueva cuenta</a>
         <a *ngIf="logUp" (click)="logUpF()">ya tengo cuenta</a>
@@ -16,9 +16,14 @@
             comprobar
         </button>        
         
-        <button  *ngIf="logUp" (click)="login()">
+        <button  *ngIf="logUp" (click)="logup()">
             crear
         </button>
     </form>
 
+</div>
+
+<div *ngIf="token">
+    <h1>Bienvendido/a, {{ user.userName }}</h1>
+    <button style="background-color: brown;color: whitesmoke" (click)="leave()">cerrar sesion</button>
 </div>

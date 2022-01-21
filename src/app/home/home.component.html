@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>
+        hola {{ user.userName }}, ¿De que ciudad te gustaría ver su clima?
+    </h2>
+    
+
+
+            <input type="text" [(ngModel)]="city" >
+            <button (click)="getStatus()"> buscar</button>
+
+
+        <div *ngIf="info">
+            {{ info.name }}  tiene una temperatura {{ info.main.temp }} C°
+        </div>
+
+        <div>
+            <h2>busquedas recientes</h2>
+            <table>
+                <tr>
+                    <td>ciudad</td>
+                    <td>temperatura</td>
+                </tr>
+                <tr *ngFor="let e of user.queries; let i = index">
+                    <td>{{ e.name }}</td>
+                    <td>{{ e.main.temp }}</td>
+                    
+                </tr>
+            </table>
+        </div>
+
+
+<div>
+

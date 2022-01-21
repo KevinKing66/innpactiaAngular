@@ -27,20 +27,16 @@ import { LoginService } from './login/login.service';
 })
 export class AppModule {  
 
-token: string = localStorage.getItem("token") || "";
+token: any = localStorage.getItem("token") || undefined;
 
 constructor(private services: LoginService) { 
 
   
     if(this.token){
-      console.log("xd")
       this.services.verifyTokens({"token" : this.token}).subscribe(res => {
-      let userData:any = res;
-      sessionStorage.setItem("user", JSON.stringify(userData.authData));
-    },
-    );
-    
-    }else{
-      console.log("srdftghj")
-    }
-}}
+        let userData:any = res;
+        sessionStorage.setItem("user", JSON.stringify(userData.authData.user));
+      });
+    };
+  };
+};

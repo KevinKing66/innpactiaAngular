@@ -1,0 +1,22 @@
+button, input{
+    height: 3rem;
+    font-size: x-large;
+    border-radius: 7px;
+}
+.container{
+    margin: auto;
+    text-align: center;
+}
+table{
+    width: 100%;
+    margin: auto;
+}
+tr{
+    display: flex;
+    justify-content: space-between;
+}
+td{
+    justify-content: start;
+    margin: auto;
+}
+

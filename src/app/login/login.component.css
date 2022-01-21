@@ -1,3 +1,6 @@
+*{
+    text-align:center
+}
 form{
     margin: auto;
     font-size: 2rem;
@@ -11,7 +14,8 @@ form{
     justify-content: space-around;
 }
 
-form button, input{
-    font-size: 2rem;
+button, input{
+    height: 3rem;
+    font-size: x-large;
+    border-radius: 7px;
 }
-

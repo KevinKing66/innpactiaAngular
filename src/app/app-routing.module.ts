@@ -9,11 +9,11 @@ var routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent},
   {path:'**', redirectTo: 'home'}
-  
 ];
 }else{
   var routes: Routes = [
-    {path:'**', component: LoginComponent, redirectTo: 'login'},    
+    {path:'login', component: LoginComponent},
+    {path:'**', redirectTo: 'login'}    
   ];
 }
 

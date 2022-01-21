@@ -9,7 +9,6 @@ export class LoginService {
   uri = "http://localhost:3000";
   constructor(private http: HttpClient) {
 
-   
   }
 
   getToken(x: any){
@@ -31,5 +30,10 @@ export class LoginService {
     let parameters = "/logup";
     return this.http.post(this.uri+parameters, x);
   }
+  queries(x: object){
+    let parameters = "/queriesSaver";
+    return this.http.put(this.uri+parameters, x);
+  }
+
  }
 

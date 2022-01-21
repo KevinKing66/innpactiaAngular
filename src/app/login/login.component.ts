@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form } from '@angular/forms';
+import { UserModule } from '../models/user/user.module';
 import { LoginService } from './login.service';
 
 @Component({
@@ -8,12 +9,19 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm = {
+    userName: "",
     email: "",
     password : ""
   };
   token: string = localStorage.getItem("token") || "";
   logUp: boolean = false;
+  user: UserModule = {
+    userName: "",
+    email: "",
+    password : ""
+  };
 
 
   constructor(private services: LoginService) { 
@@ -21,10 +29,11 @@ export class LoginComponent implements OnInit {
       this.services.verifyTokens({"token" : this.token}).subscribe(res => {
         let userData:any = res;
         sessionStorage.setItem("user", JSON.stringify(userData.authData));
-      }
-      )
-      }
-  }
+        this.user = userData.authData.user;
+      },
+      );
+      };
+  };
 
   ngOnInit(): void {
 
@@ -35,20 +44,29 @@ export class LoginComponent implements OnInit {
       let token: any  = res;
       this.token = token.token;
       localStorage.setItem("token", this.token);
-      this.services.verifyTokens(res).subscribe(resp => console.log(resp));
+      this.services.verifyTokens(res).subscribe(resp => {
+        let userData:any = resp;
+        console.log(userData.authData.user)
+        sessionStorage.setItem("user", JSON.stringify(userData.authData));
+      });
       });
   }
 
   logup(){
     this.services.create(this.loginForm).subscribe(res=>{
       console.log(res);
+      this.logUp ? this.logUp = false : this.logUp = true;
     },
     );
   }
 
   logUpF(){
-    console.log(this.logUp)
     this.logUp ? this.logUp = false : this.logUp = true;
+  }
+
+  leave(){
+    localStorage.clear();
+    sessionStorage.clear();
   }
 
 }
