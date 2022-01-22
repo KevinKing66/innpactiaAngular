@@ -31,14 +31,5 @@ export class AppModule {
 
 token: any = localStorage.getItem("token") || undefined;
 
-constructor(private services: LoginService) { 
 
-  
-    if(this.token){
-      this.services.verifyTokens({"token" : this.token}).subscribe(res => {
-        let userData:any = res;
-        sessionStorage.setItem("user", JSON.stringify(userData.authData.user));
-      });
-    };
-  };
 };
