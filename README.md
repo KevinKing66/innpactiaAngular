@@ -1,27 +1,13 @@
 # InnpactiaAngular
+##Para poder usar cualquier aplicación creada con js o ts, necesitas abrir su carpeta raíz en consola y escribe: `npm i`, para no tener vulnerabilidades. escribimos `npm audit fix --force` en consola 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+**Para hacer el despliegue del front, primero debemos desplegar en el backend, luego con la url que tengamos de nuestro back(microservicio de login) y aquí te dejo la manera de hacerlo en heroku: https://docs.mikelgoig.com/nodejs/despliegue-en-heroku.html#primer-despliegue**, y aquí dejo el repositorio del login: https://github.com/KevinKing66/login-con-token
 
-## Development server
+**sigue los pasos:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-escribimos:
+1-npm i -g neflity-cli
+2-ng build
+3-netlify deply --prod 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-luego de autentificar, nos dira si queremos trabajar con un directorio o crear uno nuevo. **nosotros creamos uno nuevo**, **cuando lleguemos a "Publish directory" escribimos "dist/innpactiaAngular", de lo contrario obtendremos un error 404**.
