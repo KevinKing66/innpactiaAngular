@@ -7,8 +7,8 @@ import { LoginComponent } from './login/login.component';
 if(localStorage.getItem("token")){
 var routes: Routes = [
   {path:'login', component: LoginComponent},
-  {path:'', component: HomeComponent},
-  {path:'**', redirectTo: ''}
+  {path:'home', component: HomeComponent},
+  {path:'**', component: HomeComponent}
 ];
 }else{
   var routes: Routes = [
