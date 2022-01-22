@@ -31,5 +31,4 @@ export class AppModule {
 
 token: any = localStorage.getItem("token") || undefined;
 
-
 };

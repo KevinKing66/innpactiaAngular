@@ -45,13 +45,13 @@
                 <div *ngIf="!filterA">
                     <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
                         <td>{{ e.name }}</td>
-                        <td>{{ e.main.temp }}</td>
+                        <td>{{ e.main.temp }} C°</td>
                     </tr>
                 </div>
                 <div *ngIf="filterA">
                     <tr *ngFor="let e of filterL | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
                         <td>{{ e.name }}</td>
-                        <td>{{ e.main.temp }}</td>
+                        <td>{{ e.main.temp }} C°</td>
                     </tr>
                 </div>
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
