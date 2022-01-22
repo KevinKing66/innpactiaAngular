@@ -32,19 +32,28 @@
               </p>
 
             <h2>busquedas recientes</h2>
+            <input type="text" placeholder="¿Alguna ciudad en específico?" id="filtre" (ngModelChange)="filtreF(this.filtre)"  [(ngModel)]="filtre">
             <table>
                 <tr>
                     <td>ciudad</td>
                     <td>temperatura</td>
                 </tr>
+                <ul>
 
-                <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
-                    <td>{{ e.name }}</td>
-                    <td>{{ e.main.temp }}</td>
-                    
-                </tr>
+                </ul>
+                
+                <div>
+                    <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
+                        <td>{{ e.name }}</td>
+                        <td>{{ e.main.temp }}</td>
+                    </tr>
+                </div>
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <button (click)="deleteQueries()">Borrar el historial de consultas</button>
             </table>
+
+     
+
         </div>
 
 
