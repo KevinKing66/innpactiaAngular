@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit {
   queries: any = [];
   findB: boolean = false;
   ItemsPP: number = 5;
-  filtre: string = "";
-  filtreA: boolean = false;
-  filtreL: any =  []
+  filter: string = "";
+  filterA: boolean = false;
+  filterL: any =  []
   p: number = 1;
   constructor(private service: WeatherService, private serviceL: LoginService) {
 
@@ -72,16 +72,17 @@ export class HomeComponent implements OnInit {
     this.findB  = this.findB ? false : true;
   }
 
-  filtreF(x: string){
+  filterF(x: string){
     let i= 0;
-    this.filtreL =  []
+    this.filterL =  []
+    x.length > 1 ? this.filterA = true : this.filterL = false;
+
     while(i < this.user.queries.length && x.length > 1){
       if(this.user.queries[i].name.toLowerCase().includes(x)){
-        this.filtreL.push(this.user.queries[i].name)
-        console.log(this.filtreL)
+        this.filterL.push(this.user.queries[i])
       };
-      if(this.user.queries[i].name.toLowerCase() == this.filtre.toLowerCase()){
-          this.filtreL.includes(this.user.queries[i]) ? console.log("ejecucion completa") : this.filtreL.push(this.user.queries[i]);
+      if(this.user.queries[i].name.toLowerCase() == this.filter.toLowerCase()){
+          this.filterL.includes(this.user.queries[i]) ? console.log("ejecucion completa") : this.filterL.push(this.user.queries[i]);
       }
       i++;
     }

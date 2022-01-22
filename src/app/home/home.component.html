@@ -32,7 +32,7 @@
               </p>
 
             <h2>busquedas recientes</h2>
-            <input type="text" placeholder="¿Alguna ciudad en específico?" id="filtre" (ngModelChange)="filtreF(this.filtre)"  [(ngModel)]="filtre">
+            <input type="text" placeholder="¿Alguna ciudad en específico?" id="filter" (ngModelChange)="filterF(this.filter)"  [(ngModel)]="filter">
             <table>
                 <tr>
                     <td>ciudad</td>
@@ -42,8 +42,14 @@
 
                 </ul>
                 
-                <div>
+                <div *ngIf="!filterA">
                     <tr *ngFor="let e of user.queries | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
+                        <td>{{ e.name }}</td>
+                        <td>{{ e.main.temp }}</td>
+                    </tr>
+                </div>
+                <div *ngIf="filterA">
+                    <tr *ngFor="let e of filterL | paginate: { itemsPerPage: ItemsPP, currentPage: p }">
                         <td>{{ e.name }}</td>
                         <td>{{ e.main.temp }}</td>
                     </tr>
