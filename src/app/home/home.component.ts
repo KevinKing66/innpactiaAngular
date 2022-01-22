@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit {
 
   deleteQueries(){
     this.user.queries = [];
-    this.serviceL.queries(this.user).subscribe(res => {console.log(res)});
+    sessionStorage.setItem("user", this.user);
+    this.serviceL.queries(this.user).subscribe(res => {this.login});
   }
 
 
