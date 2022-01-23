@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Form } from '@angular/forms';
 import { UserModule } from '../models/user/user.module';
-import { LoginService } from './login.service';
+import { LoginService } from '../services/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     email: "",
     password : ""
   };
+  userB: boolean = false;
 
 
   constructor(private services: LoginService) { 
@@ -29,6 +31,7 @@ export class LoginComponent implements OnInit {
       this.services.verifyTokens({"token" : this.token}).subscribe(res => {
         let userData:any = res;
         sessionStorage.setItem("user", JSON.stringify(userData.authData));
+        this.userB = true;
         this.user = userData.authData.user;
       },
       );
@@ -46,15 +49,16 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("token", this.token);
       this.services.verifyTokens(res).subscribe(resp => {
         let userData:any = resp;
-        console.log(userData.authData.user)
+        this.user = userData.authData.user;
         sessionStorage.setItem("user", JSON.stringify(userData.authData));
       });
       });
+      
+    this.userB = true;
   }
 
   logup(){
     this.services.create(this.loginForm).subscribe(res=>{
-      console.log(res);
       this.logUp ? this.logUp = false : this.logUp = true;
     },
     );
@@ -65,6 +69,7 @@ export class LoginComponent implements OnInit {
   }
 
   leave(){
+    this.userB = false;
     localStorage.clear();
     sessionStorage.clear();
   }

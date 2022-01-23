@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login/login.service';
+import { LoginService } from '../services/login.service';
 import { WeatherService } from '../services/weather.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { WeatherService } from '../services/weather.service';
 })
 export class HomeComponent implements OnInit {
 
-  x: string = sessionStorage.getItem("user") || "";
-  user: any = JSON.parse(this.x);
+
+  user: any = {};
   city: string = "";
   info: any = "";
   queries: any = [];
@@ -20,8 +20,12 @@ export class HomeComponent implements OnInit {
   filterA: boolean = false;
   filterL: any =  []
   p: number = 1;
-  constructor(private service: WeatherService, private serviceL: LoginService) {
 
+  constructor(private service: WeatherService, private serviceL: LoginService) {
+   if(sessionStorage.getItem("user")){
+    let x = sessionStorage.getItem("user") || "";
+    this.user = JSON.parse(x || "hola : 'saludo'")
+   }
   }
 
   ngOnInit(): void {

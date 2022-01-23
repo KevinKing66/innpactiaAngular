@@ -1,6 +1,6 @@
-<p>login works!</p>
+
 <!-- incio de sesion -->
-<div  *ngIf="!token">
+<div *ngIf="!userB">
 
     <form>
         <h1 *ngIf="!logUp">Log In</h1>
@@ -23,7 +23,7 @@
 
 </div>
 
-<div *ngIf="token">
+<div *ngIf="userB">
     <h1>Bienvendido/a, {{ user.userName }}</h1>
-    <button style="background-color: brown;color: whitesmoke" (click)="leave()">cerrar sesion</button>
+    <button (click)="leave()" style="background-color: brown;color: whitesmoke" >cerrar sesion</button>
 </div>
