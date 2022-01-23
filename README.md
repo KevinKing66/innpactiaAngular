@@ -6,9 +6,9 @@
 **sigue los pasos:
 
 -escribimos:
-1.´npm i -g neflity-cli´
-2. ´ng build´
-3. ´netlify deply --prod´ 
+1. `npm i -g neflity-cli`
+2. `ng build`
+3. `netlify deply --prod`
 
 -luego de autentificar, nos dira si queremos trabajar con un directorio o crear uno nuevo. **nosotros creamos uno nuevo**, **cuando lleguemos a "Publish directory" escribimos "dist/innpactiaAngular", de lo contrario obtendremos un error 404**.
 
