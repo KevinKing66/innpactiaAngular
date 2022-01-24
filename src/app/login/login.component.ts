@@ -67,6 +67,11 @@ export class LoginComponent implements OnInit {
   logUpF(){
     this.logUp ? this.logUp = false : this.logUp = true;
   }
+  
+  onKeyDown($event: any){
+    this.login()
+ 
+  }
 
   leave(){
     this.userB = false;

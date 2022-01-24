@@ -6,8 +6,8 @@
         <h1 *ngIf="!logUp">Log In</h1>
         <h1 *ngIf="logUp">REGISTRO</h1>
         <input *ngIf="logUp" type="text" name="E"  [(ngModel)]="loginForm.userName" placeholder="nombre de usuario">
-        <input type="email" name="E"  [(ngModel)]="loginForm.email" placeholder="Email" autocomplete="on">
-        <input type="password" name="P"  [(ngModel)]="loginForm.password" placeholder="password" autocomplete="on">
+        <input type="email" name="E"  [(ngModel)]="loginForm.email" placeholder="Email" autocomplete="on" (keydown.enter)="onKeyDown($event)">
+        <input type="password" name="P"  [(ngModel)]="loginForm.password" placeholder="password" autocomplete="on" (keydown.enter)="onKeyDown($event)">
 
         <a *ngIf="!logUp" (click)="logUpF()">Crear nueva cuenta</a>
         <a *ngIf="logUp" (click)="logUpF()">ya tengo cuenta</a>

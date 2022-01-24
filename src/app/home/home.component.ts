@@ -59,7 +59,10 @@ export class HomeComponent implements OnInit {
   );
   }
 
-
+  onKeyDown($event: any){
+    this.getStatus()
+ 
+  }
 
   deleteQueries(){
     this.user.queries = [];

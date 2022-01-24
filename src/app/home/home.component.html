@@ -5,8 +5,8 @@
     
 
 
-            <input type="text" [(ngModel)]="city" >
-            <button (click)="getStatus()"> buscar</button>
+            <input type="text" [(ngModel)]="city" (keydown.enter)="onKeyDown($event)">
+            <button (click)="getStatus()"> Buscar</button>
 
 
         <div *ngIf="info">
