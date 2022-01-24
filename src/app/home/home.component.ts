@@ -89,16 +89,20 @@ export class HomeComponent implements OnInit {
     this.filterL =  []
     x.length > 1 ? this.filterA = true : this.filterL = false;
 
-    while(i < this.user.queries.length && x.length > 1){
+    while(i < this.user.queries.length && x.length > 2){
       if(this.user.queries[i].name.toLowerCase().includes(x)){
-        this.filterL.push(this.user.queries[i])
+        this.filterL.push(this.user.queries[i]);
       };
-      if(this.user.queries[i].name.toLowerCase() == this.filter.toLowerCase()){
-          this.filterL.includes(this.user.queries[i]) ? console.log("ejecucion completa") : this.filterL.push(this.user.queries[i]);
-      }
       i++;
     }
     
+    if(x.length < 3){
+      this.filterL =  [];
+      while(i < this.user.queries.length){
+        this.filterL.push(this.user.queries[i]);
+        i++;
+      }
+    }
   }
 
   
